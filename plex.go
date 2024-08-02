@@ -189,7 +189,7 @@ func (p *Plex) GetMetadata(key string) (MediaMetadata, error) {
 
 	newHeaders := p.Headers
 
-	q := query.Query()
+	q := url.ParseRequestURI(query).Query()
 	q.Add("includeConcerts", "1")
 	q.Add("includeExtras", "1")
 	q.Add("includeOnDeck", "1")
@@ -205,7 +205,7 @@ func (p *Plex) GetMetadata(key string) (MediaMetadata, error) {
 	
 	query.RawQuery = q.Encode()
 
-	resp, err := p.get(query, newHeaders)
+	resp, err := p.get(q, newHeaders)
 
 	if err != nil {
 		return results, err
