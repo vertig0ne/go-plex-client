@@ -90,7 +90,7 @@ func New(baseURL, token string) (*Plex, error) {
 
 	// just url
 	p.URL = baseURL
-	p.originalURL := baseURL
+	p.OriginalURL = baseURL
 
 	return &p, nil
 }
