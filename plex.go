@@ -76,6 +76,7 @@ func New(baseURL, token string) (*Plex, error) {
 		_, err := url.ParseRequestURI(baseURL)
 
 		p.URL = baseURL
+		p.OriginalURL = baseURL
 		p.Token = token
 
 		return &p, err
