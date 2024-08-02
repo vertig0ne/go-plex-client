@@ -185,7 +185,7 @@ func (p *Plex) GetMetadata(key string) (MediaMetadata, error) {
 
 	var results MediaMetadata
 
-	query := fmt.Sprintf("%s/library/metadata/%s", p.URL, key)
+	query := fmt.Sprintf("%s/library/metadata/%s?includeConcerts=1&includeExtras=1&includeOnDeck=1&includePopularLeaves=1&includePreferences=1&includeReviews=1&includeChapters=1&includeStations=1&includeExternalMedia=1&asyncAugmentMetadata=1&asyncCheckFiles=1&asyncRefreshAnalys", p.URL, key)
 
 	newHeaders := p.Headers
 
