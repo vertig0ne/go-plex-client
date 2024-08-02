@@ -173,6 +173,26 @@ func (e *NotificationEvents) OnTranscodeUpdate(fn func(n NotificationContainer))
 	e.events["transcodeSession.update"] = fn
 }
 
+func (e *NotificationEvents) OnReachability(fn func(n NotificationContainer)) {
+	e.events["reachability"] = fn
+}
+
+func (e *NotificationEvents) OnPreference(fn func(n NotificationContainer)) {
+	e.events["preference"] = fn
+}
+
+func (e *NotificationEvents) OnUpdateStateChange(fn func(n NotificationContainer)) {
+	e.events["update.statechange"] = fn
+}
+
+func (e *NotificationEvents) OnActivity(fn func(n NotificationContainer)) {
+	e.events["activity"] = fn
+}
+
+func (e *NotificationEvents) OnBackgroundProcessingQueue(fn func(n NotificationContainer)) {
+	e.events["backgroundProcessingQueue"] = fn
+}
+
 // SubscribeToNotifications connects to your server via websockets listening for events
 func (p *Plex) SubscribeToNotifications(events *NotificationEvents, interrupt <-chan os.Signal, fn func(error)) {
 	plexURL, err := url.Parse(p.URL)
