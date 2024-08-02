@@ -189,7 +189,7 @@ func (p *Plex) GetMetadata(key string) (MediaMetadata, error) {
 	// query := fmt.Sprintf("%s/library/metadata/%s", p.URL, key)
 
 
-	query := p.originalURL + "/library/metadata/" + key + "?includeConcerts=1&includeExtras=1&includeOnDeck=1&includePopularLeaves=1&includePreferences=1&includeReviews=1&includeChapters=1&includeStations=1&includeExternalMedia=1&asyncAugmentMetadata=1&asyncCheckFiles=1&asyncRefreshAnalys&x-plex-token=" + p.Token
+	query := p.OriginalURL + "/library/metadata/" + key + "?includeConcerts=1&includeExtras=1&includeOnDeck=1&includePopularLeaves=1&includePreferences=1&includeReviews=1&includeChapters=1&includeStations=1&includeExternalMedia=1&asyncAugmentMetadata=1&asyncCheckFiles=1&asyncRefreshAnalys&x-plex-token=" + p.Token
 
 	newHeaders := p.Headers
 
