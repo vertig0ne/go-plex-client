@@ -70,7 +70,7 @@ type Metadata struct {
 	ParentThumb           string       `json:"parentThumb"`
 	ParentTitle           string       `json:"parentTitle"`
 	RatingCount           int          `json:"ratingCount"`
-	Rating                string      `json:"rating"`
+	// Rating                string      `json:"rating"`
 	RatingKey             string       `json:"ratingKey"`
 	SessionKey            string       `json:"sessionKey"`
 	Summary               string       `json:"summary"`
