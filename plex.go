@@ -55,7 +55,7 @@ func New(baseURL, token string) (*Plex, error) {
 	}
 
 	p.HTTPClient = http.Client{
-		Timeout: 30 * time.Second,
+		Timeout: 90 * time.Second,
 	}
 
 	p.DownloadClient = http.Client{}
