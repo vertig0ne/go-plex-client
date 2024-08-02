@@ -76,7 +76,6 @@ func New(baseURL, token string) (*Plex, error) {
 		_, err := url.ParseRequestURI(baseURL)
 
 		p.URL = baseURL
-		p.OriginalURL = baseURL
 		p.Token = token
 
 		return &p, err
@@ -91,7 +90,6 @@ func New(baseURL, token string) (*Plex, error) {
 
 	// just url
 	p.URL = baseURL
-	p.OriginalURL = baseURL
 
 	return &p, nil
 }
@@ -187,10 +185,7 @@ func (p *Plex) GetMetadata(key string) (MediaMetadata, error) {
 
 	var results MediaMetadata
 
-	// query := fmt.Sprintf("%s/library/metadata/%s", p.URL, key)
-
-
-	query := p.OriginalURL + "/library/metadata/" + key + "?includeConcerts=1&includeExtras=1&includeOnDeck=1&includePopularLeaves=1&includePreferences=1&includeReviews=1&includeChapters=1&includeStations=1&includeExternalMedia=1&asyncAugmentMetadata=1&asyncCheckFiles=1&asyncRefreshAnalys&x-plex-token=" + p.Token
+	query := fmt.Sprintf("%s/library/metadata/%s", p.URL, key)
 
 	newHeaders := p.Headers
 
