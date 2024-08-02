@@ -189,7 +189,7 @@ func (p *Plex) GetMetadata(key string) (MediaMetadata, error) {
 
 	newHeaders := p.Headers
 
-	q := u.Query()
+	q := query.Query()
 	q.Add("includeConcerts", "1")
 	q.Add("includeExtras", "1")
 	q.Add("includeOnDeck", "1")
