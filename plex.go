@@ -193,7 +193,7 @@ func (p *Plex) GetMetadata(key string) (MediaMetadata, error) {
 
 	newHeaders := p.Headers
 
-	resp, err := p.get(q, newHeaders)
+	resp, err := p.get(query, newHeaders)
 
 	if err != nil {
 		return results, err
