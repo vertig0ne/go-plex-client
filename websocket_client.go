@@ -159,6 +159,7 @@ func NewNotificationEvents() *NotificationEvents {
 			"update.statechange":        func(n NotificationContainer) {},
 			"activity":                  func(n NotificationContainer) {},
 			"backgroundProcessingQueue": func(n NotificationContainer) {},
+			"timeline":		     func(n NotificationContainer) {},
 		},
 	}
 }
@@ -191,6 +192,10 @@ func (e *NotificationEvents) OnActivity(fn func(n NotificationContainer)) {
 
 func (e *NotificationEvents) OnBackgroundProcessingQueue(fn func(n NotificationContainer)) {
 	e.events["backgroundProcessingQueue"] = fn
+}
+
+func (e *NotificationEvents) OnTimeline(fn func(n NotificationContainer)) {
+	e.events["timeline"] = fn
 }
 
 // SubscribeToNotifications connects to your server via websockets listening for events
